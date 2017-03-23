@@ -1,3 +1,5 @@
+CREATE DATABASE chasingcravings;
+
 CREATE TABLE useraccounts(
 userID		INT PRIMARY KEY,
 username	VARCHAR(20) NOT NULL UNIQUE,
