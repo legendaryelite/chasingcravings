@@ -1,3 +1,5 @@
+CREATE DATABASE chasingcravings;
+
 CREATE TABLE useraccounts(
 userID		INT PRIMARY KEY,
 username	VARCHAR(20) NOT NULL UNIQUE,
@@ -20,7 +22,7 @@ lastUserLat	DECIMAL,
 lastUserLong	DECIMAL,
 lastTruckLat	DECIMAL,
 lastTruckLong	DECIMAL,
-CONSTRAINT userID_FK  FOREIGN KEY(useraccounts) REFERENCES useraccounts(userID));
+CONSTRAINT userID_FK  FOREIGN KEY(userID) REFERENCES useraccounts(userID));
 
 CREATE TABLE favorites(
 favoriteID	INT PRIMARY KEY,
