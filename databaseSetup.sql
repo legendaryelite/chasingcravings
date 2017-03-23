@@ -22,7 +22,7 @@ lastUserLat	DECIMAL,
 lastUserLong	DECIMAL,
 lastTruckLat	DECIMAL,
 lastTruckLong	DECIMAL,
-CONSTRAINT userID_FK  FOREIGN KEY(useraccounts) REFERENCES useraccounts(userID));
+CONSTRAINT userID_FK  FOREIGN KEY(userID) REFERENCES useraccounts(userID));
 
 CREATE TABLE favorites(
 favoriteID	INT PRIMARY KEY,
