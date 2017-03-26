@@ -18,10 +18,10 @@ truckURL	VARCHAR(100),
 servesBreakfast	BOOLEAN,
 servesLunch	BOOLEAN,
 servesDinner	BOOLEAN,
-lastUserLat	DECIMAL,
-lastUserLong	DECIMAL,
-lastTruckLat	DECIMAL,
-lastTruckLong	DECIMAL,
+lastUserLat	FLOAT,
+lastUserLong	FLOAT,
+lastTruckLat	FLOAT,
+lastTruckLong	FLOAT,
 CONSTRAINT userID_FK  FOREIGN KEY(userID) REFERENCES useraccounts(userID));
 
 CREATE TABLE favorites(
