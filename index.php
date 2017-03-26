@@ -40,32 +40,28 @@
 	else 
 	{ 
 		print("<script>");
-      	print("function initMap() {");
+      		print("function initMap() {");
 		$rownum = 0;
 		while ($row = mysqli_fetch_assoc($result))
 		{
 			print("var uluru".rownum." = {lat: ".number_format($row['lastTruckLat'], 3).", lng: ".number_format($row['lastTruckLong'], 3)."};");
-        	print("var map".rownum." = new google.maps.Map(document.getElementById(\'map\'), {");
-          	print("zoom: 4,");
-          	print("center: uluru");
-        	print("});");
-        	print("var marker".rownum." = new google.maps.Marker({");
-          	print("position: uluru,");
-          	print("map: map");
-        	print("});");
+        		print("var map".rownum." = new google.maps.Map(document.getElementById(\'map\'), {");
+          		print("zoom: 4,");
+          		print("center: uluru");
+        		print("});");
+        		print("var marker".rownum." = new google.maps.Marker({");
+          		print("position: uluru,");
+          		print("map: map");
+        		print("});");
 			$rownum++;
 		}
-
-
 	}
-
 	mysqli_close($connect);   // close the connection
-
-    print("}");
-    print("</script>");
-    print("<script async ");
+	print("}");
+    	print("</script>");
+   	print("<script async ");
 	print("  defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCCXuyY-DXEtsMn_evGMrhPFjEfWNYy1jo&callback=initMap\">");
-    print("</script>");
+    	print("</script>");
 	?>
   </body>
 </html>
