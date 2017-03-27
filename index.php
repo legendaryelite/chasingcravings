@@ -45,7 +45,7 @@
 		$rownum = 0; 
 		while($row = mysqli_fetch_assoc($result))
 		{
-			echo "var uluru".$rownum." = {lat: ".number_format($row['lastTruckLat'], 3).", lng: ".number_format($row['lastTruckLong'], 3)."};";
+			echo "var uluru".$rownum." = {lat: ".number_format($row['lastTruckLat'], 5).", lng: ".number_format($row['lastTruckLong'], 5)."};";
 			if($rownum == 0){
 				echo "var map = new google.maps.Map(document.getElementById('map'), {
 				  zoom: 4,
