@@ -3,15 +3,15 @@
   <head>
     <style>
       #map {
-        height: 400px;
-        width: 100%;
+        height: 600px;
+        width: 85%;
        }
     </style>
   </head>
   <body>
-    <h3>Chasing Cravings</h3>
+    <h3>My Google Maps Demo</h3>
     <div id="map"></div>
-    <?php
+	<?php 
 	$server = "localhost";
 	$user = "root";
 	$pw = "";
@@ -39,29 +39,32 @@
 	}
 	else 
 	{ 
-		print("<script>");
-      		print("function initMap() {");
-		$rownum = 0;
-		while ($row = mysqli_fetch_assoc($result))
+		echo "<script>
+		function initMap() {
+			";
+		$rownum = 0; 
+		while($row = mysqli_fetch_assoc($result))
 		{
-			print("var uluru".rownum." = {lat: ".number_format($row['lastTruckLat'], 3).", lng: ".number_format($row['lastTruckLong'], 3)."};");
-        		print("var map".rownum." = new google.maps.Map(document.getElementById(\'map\'), {");
-          		print("zoom: 4,");
-          		print("center: uluru");
-        		print("});");
-        		print("var marker".rownum." = new google.maps.Marker({");
-          		print("position: uluru,");
-          		print("map: map");
-        		print("});");
+			echo "var uluru".$rownum." = {lat: ".number_format($row['lastTruckLat'], 3).", lng: ".number_format($row['lastTruckLong'], 3)."};";
+			if($rownum == 0){
+				echo "var map = new google.maps.Map(document.getElementById('map'), {
+				  zoom: 4,
+				  center: uluru".$rownum."
+				});";
+			}
+			echo "var marker".$rownum." = new google.maps.Marker({
+			  position: uluru".$rownum.",
+			  map: map
+			});
+			";
 			$rownum++;
 		}
+		echo "}
+		</script>
+		<script async defer
+		  src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCCXuyY-DXEtsMn_evGMrhPFjEfWNYy1jo&callback=initMap\">
+		</script>";
 	}
-	mysqli_close($connect);   // close the connection
-	print("}");
-    	print("</script>");
-   	print("<script async ");
-	print("  defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCCXuyY-DXEtsMn_evGMrhPFjEfWNYy1jo&callback=initMap\">");
-    	print("</script>");
 	?>
   </body>
 </html>
