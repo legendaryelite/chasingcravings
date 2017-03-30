@@ -1,1 +1,38 @@
+/* =============================================================================
+   Navigation Bar 
+   ========================================================================== */
+   
+#nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; /* change */
+}
 
+#nav-bar ul li {
+    float: left;
+}
+
+/* Add later for mobile site
+@media screen and (max-width: 600px){
+    ul.nav-bar li.right, 
+    ul.nav-bar li {float: none;}
+}
+*/
+
+#nav-bar ul li .active {
+	background-color: red; /* change */
+}
+
+#nav-bar ul li a {
+    display: block;
+    color: white; /* change */
+    text-align: center;
+    padding: 14px 16px; /* height , width */
+    text-decoration: none;
+}
+
+#nav-bar ul li a:hover {
+    background-color: #111; /* change */
+}

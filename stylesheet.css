@@ -1,1 +1,78 @@
 
+/* =============================================================================
+   HTML5 CSS Reset Minified (Resets everything to defaults)
+   ========================================================================== */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+/* =============================================================================
+   Page Setup
+   ========================================================================== */
+
+span{
+	margin: 0px;
+}
+h1{
+	font-family: "Tahoma"; /*Change font to match the logo*/
+	font-size: 50px !important; 
+	margin: 0;
+	padding-bottom: 0%;
+	padding-top: 0%;
+	padding-left: 0%;
+	padding-right: 0%;
+	color: black; 
+	/*transition: all .2s ease-in-out;*/ /*Test that this fits the website*/
+}
+body{
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+header, section, footer, aside, nav, article, hgroup{
+	display: block;
+}
+/* Wrapper for the entire page */
+#page-wrapper{
+	background: white; /*change to yellowish color once found*/
+	width: 100%;
+	margin-top: 10px;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	z-index: 1; /* sent to back */
+}
+/* =============================================================================
+   Footer Setup
+   ========================================================================== */
+#footer{
+	background: white; /*Change to match page-wrapper*/
+	padding-bottom: 5px;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: black;
+	padding-top: .5%;
+	width: 100%;
+	float: right;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+}
+/* Make holder for mobile site later
+@media only screen and (max-width: 768px) { 
+	#footer{
+		width: 100%;
+	}
+}
+*/
