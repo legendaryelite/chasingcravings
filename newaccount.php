@@ -1,12 +1,15 @@
 <!DOCTYPE  html>
 <html>
 	<head>
-		<title> Chasing Creavings</title>
+		<?php include "headInfo.php";?>
 	</head>
 	<body>
 		<?php
-			$newName = $newEmail = $newPwd = $confPwd = "";
-			$nameErr = $emailErr = $pwdErr = $confErr = "";
+			include "desktopheader.php";
+			
+			// Form input validation
+			$newName = $newEmail = $newPwd = $confPwd = $newAcctType = "";
+			$nameErr = $emailErr = $pwdErr = $confErr = $typeErr = "";
 			if($_SERVER["REQUEST_METHOD"] == "POST"){
 				if(empty($_POST['username'])){
 					$nameErr = "Name is required.";
@@ -37,6 +40,44 @@
 						$confErr = "Passwords do not match.";
 					}
 				}
+				if(empty($_POST['acctType'])){
+					$typeErr = "Account type must be selected.";
+				}else{
+					$newAcctType = test_input($_POST['acctType']);
+				}
+				
+				// if everything checks out, perform the insert
+				if($nameErr == "" && $emailErr == "" && $pwdErr == "" && $confErr == "" && $typeErr == ""){
+					$userQuery = "INSERT INTO `useraccounts`(`username`, `email`, `pwd`, `acctType`) VALUES ('".$newName."','".$newEmail."','".$newPwd."','".$newAcctType."')";
+					$server = "localhost";
+					$db = "chasingcravings";
+					if(isset($_SESSION['username']) != null && isset($_SESSION['pwd']) != null){
+						$user = $_SESSION['username'];
+						$pw = $_SESSION['pwd'];
+					}
+					else{
+						$user = "root";
+						$pw = "";
+					}
+					$connect=mysqli_connect($server, $user, $pw, $db);
+					if( !$connect) 
+					{
+						die("ERROR: Cannot connect to database $db on server $server 
+						using user name $user (".mysqli_connect_errno().
+						", ".mysqli_connect_error().")");
+					}
+					$result = mysqli_query($connect, $userQuery);
+					if (!$result) 
+					{
+						$nameErr = "Username is already in use.";
+					}
+					else{
+						$newName = $newEmail = $newPwd = $confPwd = $newAcctType = "";
+						$specialMessage = "Account created successfully!";
+						
+					}
+					mysqli_close($connect);
+				}
 			}
 			function test_input($data){
 				$data = trim($data);
@@ -55,7 +96,7 @@
 							<label><b>Username</b></label>
 						</td>
 						<td>
-							<input type = "text" value="<?php echo $newName;?>" name ="username" required>
+							<input type = "text" value="<?php echo $newName;?>" name ="username" required maxlength="20">
 							<span class="error"><?php echo $nameErr;?></span>
 						</td>
 					</tr>
@@ -66,7 +107,7 @@
 							<label><b>Email</b></label>
 						</td>
 						<td>
-							<input type = "email" value="<?php echo $newEmail;?>" name ="email" required>
+							<input type = "email" value="<?php echo $newEmail;?>" name ="email" required maxlength="50">
 							<span class="error"><?php echo $emailErr;?></span>
 						</td>
 					</tr>
@@ -77,7 +118,7 @@
 							<label><b>Password</b></label>
 						</td>
 						<td>
-							<input type = "password" value="<?php echo $newPwd;?>" name ="pwd" required>
+							<input type = "password" value="<?php echo $newPwd;?>" name ="pwd" required maxlength = "50">
 							<span class="error"><?php echo $pwdErr;?></span>
 						</td>
 					</tr>
@@ -88,8 +129,20 @@
 							<label><b>Confirm Password</b></label>
 						</td>
 						<td>
-							<input type = "password" value="<?php echo $confPwd;?>" name ="confirmpassword" required>
+							<input type = "password" value="<?php echo $confPwd;?>" name ="confirmpassword" required maxlength="50">
 							<span class="error"><?php echo $confErr;?></span>
+						</td>
+					</tr>
+				</div>
+				<div class="container">
+					<tr>
+						<td>
+							<label><b>Account Type</b></label>
+						</td>
+						<td>
+							<input type="radio" name="acctType" value="user" required>Normal User
+							<input type="radio" name="acctType" value="truck" required>Food Truck
+							<span class="error"><?php echo $typeErr;?></span>
 						</td>
 					</tr>
 				</div>
@@ -99,5 +152,7 @@
 			</div>
 			</form>
 		</div>
+		<?php echo $specialMessage; ?>
+		
 	</body>
 </html>
