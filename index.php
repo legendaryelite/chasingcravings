@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-<!-- Created for testing navbar without using PHP -->
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
