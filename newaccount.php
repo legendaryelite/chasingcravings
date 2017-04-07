@@ -1,4 +1,6 @@
 <!DOCTYPE  html>
+<!-- This page is for creating new accounts.
+Contents include a form with fields for username, email, password, and a selection of type of account it will be-->
 <html>
 	<head>
 		<?php include "headInfo.php";?>
@@ -6,11 +8,11 @@
 	<body>
 		<?php
 			include "desktopheader.php";
-			
-			// Form input validation
 			$newName = $newEmail = $newPwd = $confPwd = $newAcctType = "";
-			$nameErr = $emailErr = $pwdErr = $confErr = $typeErr = "";
+			$nameErr = $emailErr = $pwdErr = $confErr = $typeErr = $specialMessage = "";
+			// This code executes if a POST request was made (i.e. the form was submitted by POST)
 			if($_SERVER["REQUEST_METHOD"] == "POST"){
+				// Data validation
 				if(empty($_POST['username'])){
 					$nameErr = "Name is required.";
 				}else{
@@ -45,20 +47,11 @@
 				}else{
 					$newAcctType = test_input($_POST['acctType']);
 				}
-				
-				// if everything checks out, perform the insert
+				// If no errors were found, set up the query and execute the insertion.
 				if($nameErr == "" && $emailErr == "" && $pwdErr == "" && $confErr == "" && $typeErr == ""){
 					$userQuery = "INSERT INTO `useraccounts`(`username`, `email`, `pwd`, `acctType`) VALUES ('".$newName."','".$newEmail."','".$newPwd."','".$newAcctType."')";
-					$server = "localhost";
-					$db = "chasingcravings";
-					if(isset($_SESSION['username']) != null && isset($_SESSION['pwd']) != null){
-						$user = $_SESSION['username'];
-						$pw = $_SESSION['pwd'];
-					}
-					else{
-						$user = "root";
-						$pw = "";
-					}
+					include "dbcredentials.php";
+					
 					$connect=mysqli_connect($server, $user, $pw, $db);
 					if( !$connect) 
 					{
@@ -72,13 +65,17 @@
 						$nameErr = "Username is already in use.";
 					}
 					else{
+						$userQuery = "CREATE USER '".$newName."'@'%' IDENTIFIED WITH mysql_native_password AS '".$newPwd."';GRANT SELECT, INSERT, UPDATE ON *.* TO '".$newName."'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `chasingcravings`.* TO '".$newName."'@'%';";
+						$result = mysqli_query($connect, $userQuery);
 						$newName = $newEmail = $newPwd = $confPwd = $newAcctType = "";
+						
 						$specialMessage = "Account created successfully!";
 						
 					}
 					mysqli_close($connect);
 				}
 			}
+			// This fuction validates, trimes, and secures the data entry
 			function test_input($data){
 				$data = trim($data);
 				$data = stripslashes($data);
@@ -88,6 +85,7 @@
 		?>
 		<div>
 			<h1> Create User Account</h1>
+			<!-- Generate the form -->
 			<form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 			<table border=0>
 				<div class="container">
