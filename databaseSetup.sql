@@ -9,7 +9,7 @@ acctType	VARCHAR(5) NOT NULL);
 
 CREATE TABLE trucks(
 truckID		INT PRIMARY KEY,
-truckName	VARCHAR(50) NOT NULL UNIQUE,
+truckName	VARCHAR(50) NOT NULL,
 userID		INT NOT NULL,
 cuisine		VARCHAR(50) NOT NULL,
 hours		VARCHAR(100),
