@@ -1,5 +1,6 @@
 <?php echo '<link rel="stylesheet" type="text/css" href="navbar.css">'; ?>
 <?php echo '<link rel="stylesheet" type="text/css" href="stylesheet.css">'; ?>
+
 <?php
 	// This php file generates the header based on whether a login session has been started or not.
 	session_start();

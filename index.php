@@ -6,13 +6,13 @@
 <html lang="en">
 <head>
 	<?php include "headInfo.php";?>
-	
   <style> 
       #map {
         height: 700px;
         width: 85%;
 		display: block;
 		margin: auto;
+
        }
   </style>
 </head>

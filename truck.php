@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include "headInfo.php";?>
+  <?php include "headInfo.php";?>
 <title>Chasing Cravings</title>
 <style>
       #map {
-		display: block;
-		float: left;
+		    display: block;
+		    float: left;
         height: 400px;
         width: 53%; 
-		margin: .5%;
+		    margin: .5%;
+
        }
   </style>
 </head>
@@ -136,7 +137,6 @@
 				<div id="map"></div>
 			</div>
 			<div class="truck-review">
-				<h2>Write a Reveiw</h2>
 					<?php 
 					// If the user is logged in, allow them to leave a comment/rating
 					if(isset($_SESSION['userID']) != null){
@@ -171,7 +171,8 @@
 							}
 						}
 						mysqli_close($connect);
-						echo "<div class=\"form-group\">
+						echo "<h2>Write a Reveiw</h2>
+            <div class=\"form-group\">
 							<form action=\"".htmlspecialchars($_SERVER["PHP_SELF"])."?truckID=".$_SESSION['truckID']."\" method=\"post\">
 								<div class=\"truck-fav\">
 									<input type=\"checkbox\" name=\"favorite\" value=\"favorite\" ".$prevFavorite.">Favorite this truck<br>
@@ -274,8 +275,6 @@
 	<div>
 		<a class="twitter-timeline" data-width="300" data-height="600" href="https://twitter.com/FoxNews">Tweets by FoxNews</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	</div> -->
-
-
   <!--Need Comment Box
    Need GPS Locator
    Need Twitter Live Feed
