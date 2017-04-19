@@ -1,6 +1,6 @@
 /* =============================================================================
    Navigation Bar 
-   ========================================================================== */
+   ============================================================================= */
    
 #nav-bar ul {
     list-style-type: none;
@@ -26,6 +26,7 @@
 }
 
 #nav-bar ul li a {
+	font-family: Tahoma, Geneva, sans-serif;
     display: block;
     color: white; /* change */
     text-align: center;
@@ -35,4 +36,36 @@
 
 #nav-bar ul li a:hover {
     background-color: #111; /* change */
+}
+
+#nav-aside{
+	width: 10%;
+	position: fixed;
+	background: #6d6c6c; 
+	z-index: 20;
+	margin: 20px;
+}
+
+#nav-aside #nav-menu{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+#nav-aside #nav-menu ul li{
+	padding: 0;
+	list-style: none;
+}
+
+#nav-aside #nav-menu ul li a{
+	font-family: Tahoma, Geneva, sans-serif;
+	display: block;
+	color: white;
+	text-decoration: none;
+	position: relative;
+	padding: 10px 10px;
+}
+
+#nav-aside #nav-menu ul li a:hover{
+	background-color: #111;
 }

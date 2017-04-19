@@ -83,72 +83,74 @@ Contents include a form with fields for username, email, password, and a selecti
 				return $data;
 			}
 		?>
-		<div>
-			<h1> Create User Account</h1>
-			<!-- Generate the form -->
-			<form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-			<table border=0>
+		<div id="page-wrapper">
+			<div class="form-wrapper-account">
+				<h1> Create User Account</h1>
+				<!-- Generate the form -->
+				<form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<table border=0>
+					<div class="container">
+						<tr>
+							<td>
+								<label><b>Username</b></label>
+							</td>
+							<td>
+								<input type = "text" value="<?php echo $newName;?>" name ="username" required maxlength="20">
+								<span class="error"><?php echo $nameErr;?></span>
+							</td>
+						</tr>
+					</div>
+					<div class="container">
+						<tr>
+							<td>
+								<label><b>Email</b></label>
+							</td>
+							<td>
+								<input type = "email" value="<?php echo $newEmail;?>" name ="email" required maxlength="50">
+								<span class="error"><?php echo $emailErr;?></span>
+							</td>
+						</tr>
+					</div>
+					<div class="container">
+						<tr>
+							<td>
+								<label><b>Password</b></label>
+							</td>
+							<td>
+								<input type = "password" value="<?php echo $newPwd;?>" name ="pwd" required maxlength = "50">
+								<span class="error"><?php echo $pwdErr;?></span>
+							</td>
+						</tr>
+					</div>
+					<div class="container">
+						<tr>
+							<td>
+								<label><b>Confirm Password</b></label>
+							</td>
+							<td>
+								<input type = "password" value="<?php echo $confPwd;?>" name ="confirmpassword" required maxlength="50">
+								<span class="error"><?php echo $confErr;?></span>
+							</td>
+						</tr>
+					</div>
+					<div class="container">
+						<tr>
+							<td>
+								<label><b>Account Type</b></label>
+							</td>
+							<td>
+								<input type="radio" name="acctType" value="user" required>Normal User
+								<input type="radio" name="acctType" value="truck" required>Food Truck
+								<span class="error"><?php echo $typeErr;?></span>
+							</td>
+						</tr>
+					</div>
+				</table>
 				<div class="container">
-					<tr>
-						<td>
-							<label><b>Username</b></label>
-						</td>
-						<td>
-							<input type = "text" value="<?php echo $newName;?>" name ="username" required maxlength="20">
-							<span class="error"><?php echo $nameErr;?></span>
-						</td>
-					</tr>
+					<button type ="submit"> Submit</button>
 				</div>
-				<div class="container">
-					<tr>
-						<td>
-							<label><b>Email</b></label>
-						</td>
-						<td>
-							<input type = "email" value="<?php echo $newEmail;?>" name ="email" required maxlength="50">
-							<span class="error"><?php echo $emailErr;?></span>
-						</td>
-					</tr>
-				</div>
-				<div class="container">
-					<tr>
-						<td>
-							<label><b>Password</b></label>
-						</td>
-						<td>
-							<input type = "password" value="<?php echo $newPwd;?>" name ="pwd" required maxlength = "50">
-							<span class="error"><?php echo $pwdErr;?></span>
-						</td>
-					</tr>
-				</div>
-				<div class="container">
-					<tr>
-						<td>
-							<label><b>Confirm Password</b></label>
-						</td>
-						<td>
-							<input type = "password" value="<?php echo $confPwd;?>" name ="confirmpassword" required maxlength="50">
-							<span class="error"><?php echo $confErr;?></span>
-						</td>
-					</tr>
-				</div>
-				<div class="container">
-					<tr>
-						<td>
-							<label><b>Account Type</b></label>
-						</td>
-						<td>
-							<input type="radio" name="acctType" value="user" required>Normal User
-							<input type="radio" name="acctType" value="truck" required>Food Truck
-							<span class="error"><?php echo $typeErr;?></span>
-						</td>
-					</tr>
-				</div>
-			</table>
-			<div class="container">
-				<button type ="submit"> Submit</button>
+				</form>
 			</div>
-			</form>
 		</div>
 		<?php echo $specialMessage; ?>
 		

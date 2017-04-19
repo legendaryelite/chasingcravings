@@ -1,9 +1,9 @@
 
 /* =============================================================================
    HTML5 CSS Reset Minified (Resets everything to defaults)
-   ========================================================================== */
+   ============================================================================= */
 
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:auto;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
 body{line-height:1}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 nav ul{list-style:none}
@@ -20,26 +20,38 @@ li{list-style:none}
 
 /* =============================================================================
    Page Setup
-   ========================================================================== */
+   ============================================================================= */
 
 span{
-	margin: 0px;
+	margin: auto;
+	font-family: Tahoma, Geneva, sans-serif;
 }
 h1{
-	font-family: "Tahoma"; /*Change font to match the logo*/
-	font-size: 50px !important; 
+	font-family: Tahoma, Geneva, sans-serif; /*Change font to match the logo*/
+	font-size: 36px !important; 
 	margin: 0;
 	padding-bottom: 0%;
-	padding-top: 0%;
+	padding-top: 1%;
 	padding-left: 0%;
 	padding-right: 0%;
 	color: black; 
 	/*transition: all .2s ease-in-out;*/ /*Test that this fits the website*/
 }
+h2{
+	font-family: Tahoma, Geneva, sans-serif; /*Change font to match the logo*/
+	font-size: 24px !important; 
+	margin: 0;
+}
+h3{
+	font-family: Tahoma, Geneva, sans-serif; /*Change font to match the logo*/
+	font-size: 14px !important; 
+	margin-bottom: 5px;
+	text-decoration: none;
+	font-weight: normal;
+}
 body{
-	width: 100%;
-	display: block;
-	text-align: center;
+	font-family: "Tahoma";
+
 }
 header, section, footer, aside, nav, article, hgroup{
 	display: block;
@@ -54,9 +66,111 @@ header, section, footer, aside, nav, article, hgroup{
 	text-align: center;
 	z-index: 1; /* sent to back */
 }
+.form-wrapper{
+	width: 30%;
+	margin-top: 20px;
+	text-align: center;
+}
+.form-wrapper-account{ /*Seems to be another row in myaccount table (doesnt center)*/
+	width: 400px;
+	margin-top: 20px;
+	text-align: center;
+	padding-left: 0%; /*Need to center myaccount table*/
+}
+#truck-wrapper{
+	width: 95%;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+}
+.truck{
+	height: 30%;
+	width: 100%;
+	display: block;
+	float: left;
+}
+.truck-main{
+	height: 100%;
+	width: 45%;
+	margin: .5%;
+	display: block;
+	float: left;
+}
+.truck-img{
+	display: block;
+	float: top;
+	text-align: center;
+	width: auto;
+	margin: 1%;
+}
+.truck-img img{ /*Add if needed*/
+	
+}
+.truck-info{
+	border: 2px solid black;
+	display: block;
+	float: bottom;
+	width: auto;
+	margin: 1%;
+}
+.truck-review{
+	width: 100%;
+	display: block;
+	float: left;
+	text-align: center;
+	margin-top: .5%;
+}
+.form-group{
+	width: 100%;
+	display: block;
+	float: left;
+	text-align: right;
+}
+.truck-fav{
+	float: right;
+	text-align: right;
+	margin: .2%;
+}
+.truck-rating{
+	float: left;
+	text-align: right;
+	margin: .2%;
+}
+.truck-comment{
+	float: left;
+	text-align: left;
+	width: 99.6%;
+	margin-left: .2%;
+}
+.truck-comment textarea{
+	float: left;
+	text-align: left;
+	width: 100%;
+}
+.truck-reviews{
+	
+}
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+td, th{
+	text-align: left;
+	padding: 5px;
+	
+}
+tr:nth-child(even){background-color: #f2f2f2} /*Shading for every other row*/
+input{
+	width: 100%;
+	border: 1px solid black;
+}
+button{
+	margin-top: 6px;
+}
 /* =============================================================================
    Footer Setup
-   ========================================================================== */
+   ============================================================================= */
+   
 #footer{
 	background: white; /*Change to match page-wrapper*/
 	padding-bottom: 5px;

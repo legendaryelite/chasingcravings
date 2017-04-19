@@ -6,10 +6,13 @@
 <html lang="en">
 <head>
 	<?php include "headInfo.php";?>
-  <style>
+  <style> 
       #map {
-        height: 600px;
+        height: 700px;
         width: 85%;
+		display: block;
+		margin: auto;
+
        }
   </style>
 </head>
@@ -17,7 +20,6 @@
 	<?php include "desktopheader.php";?>
 	
 	<div id="page-wrapper">	
-		
 		<div id="map"></div>
 		<?php 
 			// If the session calls for favorites only, set query to only favorited items.  Otherwise, get all trucks
